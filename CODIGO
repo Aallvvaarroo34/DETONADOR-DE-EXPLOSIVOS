@@ -1,0 +1,109 @@
+Creado por: Álvaro Herrero Lobo, 2024.
+
+#include <SoftwareSerial.h>
+
+int APP_REC;
+SoftwareSerial bt_serial(10,11);
+
+void setup(){
+  Serial.begin(9600);
+  bt_serial.begin(9600);
+  pinMode(8, OUTPUT);
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(9, OUTPUT);
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH); 
+  digitalWrite(4, HIGH); 
+  digitalWrite(5, HIGH); 
+  digitalWrite(6, HIGH); 
+  digitalWrite(7, HIGH); 
+  digitalWrite(8, HIGH); 
+  digitalWrite(9, HIGH);  
+  Serial.println("INICIADO CORRECTAMENTE"); 
+}
+
+void loop(){
+    if ((bt_serial.available()>0)) {
+      APP_REC = bt_serial.read();
+      Serial.println(APP_REC);
+      if ((APP_REC == 1)) {
+        digitalWrite(5, LOW);  
+        delay(1500);
+        digitalWrite(5, HIGH); 
+      } 
+
+      if ((APP_REC == 2)) {
+        digitalWrite(4, LOW);
+        delay(1500);
+        digitalWrite(4, HIGH);  
+      }
+
+      if ((APP_REC == 3)) {
+        digitalWrite(3, LOW);  
+        delay(1500);
+        digitalWrite(3, HIGH); 
+      }
+
+      if ((APP_REC == 4)) {
+        digitalWrite(2, LOW);  
+        delay(1500);
+        digitalWrite(2, HIGH); 
+      }
+
+      if ((APP_REC == 5)) {
+        digitalWrite(7, LOW);  
+        delay(1500);
+        digitalWrite(7, HIGH); 
+      }
+
+      if ((APP_REC == 6)) {
+        digitalWrite(6, LOW);  
+        delay(1500);
+        digitalWrite(6, HIGH); 
+      }
+
+      if ((APP_REC == 7)) {
+        digitalWrite(8, LOW);  
+        delay(1500);
+        digitalWrite(8, HIGH); 
+      }
+      
+      if ((APP_REC == 8)) {
+        digitalWrite(9, LOW);  
+        delay(1500);
+        digitalWrite(9, HIGH); 
+      }
+
+      if ((APP_REC == 10)) {
+  digitalWrite(2, LOW);  
+  delay(250);
+  digitalWrite(2, HIGH); 
+  digitalWrite(3, LOW);
+  delay(250);
+  digitalWrite(3, HIGH);  
+  digitalWrite(4, LOW);
+  delay(250);
+  digitalWrite(4, HIGH);  
+  digitalWrite(5, LOW);
+  delay(250);
+  digitalWrite(5, HIGH);  
+  digitalWrite(6, LOW);  
+  delay(250);
+  digitalWrite(6, HIGH);  
+  digitalWrite(7, LOW); 
+  delay(250);
+  digitalWrite(7, HIGH);  
+  digitalWrite(8, LOW);  
+  delay(250);
+  digitalWrite(8, HIGH);  
+  digitalWrite(9, LOW);
+  delay(250);
+  digitalWrite(9, HIGH); 
+      }
+    }
+}
